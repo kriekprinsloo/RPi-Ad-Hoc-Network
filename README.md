@@ -57,5 +57,27 @@ iface wlan0 inet static
   
 Replace the IP address of your Raspberry Pi and the SSID of your network to whatever you had in mind, and first look up your wireless channels you can use, because they differ from country to country.
 
+Next, we need to disable dhcpcd, because it will try to give you another IP address:
+
+```bash
+systemctl stop dhcpcd.service
+```
+
 Do the same steps on all the other Raspberry Pis, keeping the SSID name the same as your chosen one, and changing the last digits in the IP address to something that isn't taken by the other Raspberry Pis.
 
+Now reboot by entering:
+
+```bash
+reboot
+```
+
+## Testing
+
+When you have more than one Raspberry Pi set up to communicate in the Ad-Hoc network, you should test it now.
+
+In the command prompt, type:
+
+```bash
+ping NodeIPAdress
+```
+Replace NodeIPAddress with the IP address of your other Raspberry Pi that we set up as well.
