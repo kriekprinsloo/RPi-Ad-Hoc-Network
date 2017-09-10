@@ -71,6 +71,28 @@ Now reboot by entering:
 reboot
 ```
 
+## Alternative
+
+This method is an alternative way to set up the Ad-Hoc network and static IP.
+
+First, you need to create a Bash script to autorun on boot:
+```bash
+cd ~
+```
+```bash
+nano autoscript
+```
+What you want to put in the script is three lines; the first tells the computer that this is a bash script, the second sets up the Ad_hoc network, and the third sets the static IP.
+```bash
+#!/bin/bash
+iwconfig wlan0 mode ad-hoc channel 1 essid "PiAdHoc"
+ip addr add 192.168.1.42 dev wlan0
+```
+
+Next, we need to add the
+
+Next, we need to edit our rc.local file to add 
+
 ## Testing
 
 When you have more than one Raspberry Pi set up to communicate in the Ad-Hoc network, you should test it now.
